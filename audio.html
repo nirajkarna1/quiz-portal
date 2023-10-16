@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio ROUND</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .top-bar {
+            background-color: rgb(97, 16, 15);
+            padding: 10px;
+            text-align: right;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            
+        }
+
+        .stopwatch-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .question-container {
+            text-align: center;
+            margin-top: 20px;
+            border: 2px solid rgb(124, 123, 26);
+            background-color: rgb(97, 16, 15);
+            padding: 10px;
+        }
+
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="index.html"><button id="homeButton" style="background-color: rgb(5, 5, 112); color: white;">Home</button></a>
+    <a href="audio.html"><button id="indexButton" style="background-color: rgb(5, 5, 112); color: white;">Index</button></a>
+</div>
+
+<div class="container">
+    <h2>Choose Group for Audio:</h2>
+    <button id="audio1">Play Audio A</button>
+    <button id="audio2">Play Audio B</button>
+    <button id="audio3">Play Audio C</button>
+    <button id="audio4">Play Audio D</button>
+    <button id="audio5">Play Audio E</button>
+    <button id="audio6">Play Audio F</button>
+    <button id="audio7">Play Audio G</button>
+    <button id="audio8">Play Audio H</button>
+    <button id="audio9">Play Audio I</button>
+    <button id="audio10">Play Audio J</button>
+</div>
+
+<div class="question-container">
+    <h2 class="question">Identify the Voice of Famous Personalities/Singer</h2>
+</div>
+
+<div class="stopwatch-container">
+    <h2>Stopwatch</h2>
+    <div id="stopwatch">00:00</div>
+    <button id="startButton">Start</button>
+    <button id="stopResumeButton">Stop</button>
+</div>
+
+<div class="container">
+    <h2>Audio Controls</h2>
+    <button id="pauseButton">Pause</button>
+    <button id="playButton">Play</button>
+</div>
+
+<audio id="audioPlayer" controls style="display:none;"></audio>
+<audio id="beepAudio">
+  <source src="beep.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+    var audioPlayer = document.getElementById("audioPlayer");
+    var stopwatchRunning = false;
+
+    document.getElementById("audio1").addEventListener("click", function() {
+        playAudio("rabi.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+    document.getElementById("audio2").addEventListener("click", function() {
+        playAudio("rajesh.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+    document.getElementById("audio3").addEventListener("click", function() {
+        playAudio("sushant.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+    document.getElementById("audio4").addEventListener("click", function() {
+        playAudio("kp.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+    document.getElementById("audio5").addEventListener("click", function() {
+        playAudio("sher.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+    document.getElementById("audio6").addEventListener("click", function() {
+        playAudio("yama.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+    document.getElementById("audio7").addEventListener("click", function() {
+        playAudio("magne.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+    document.getElementById("audio8").addEventListener("click", function() {
+        playAudio(" Balen.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+    document.getElementById("audio9").addEventListener("click", function() {
+        playAudio("Prakash.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+    document.getElementById("audio10").addEventListener("click", function() {
+        playAudio("prachanda.mp3");
+        if (!stopwatchRunning) {
+            startStopwatch();
+        }
+    });
+
+
+    function playAudio(audioURL) {
+        audioPlayer.src = audioURL;
+        audioPlayer.play();
+    }
+
+    document.getElementById("pauseButton").addEventListener("click", function() {
+        audioPlayer.pause();
+    });
+
+    document.getElementById("playButton").addEventListener("click", function() {
+        audioPlayer.play();
+    });
+
+    var timerInterval;
+    var seconds = 0;
+    var minutes = 0;
+    var stopwatchElement = document.getElementById("stopwatch");
+    var startButton = document.getElementById("startButton");
+    var stopResumeButton = document.getElementById("stopResumeButton");
+
+    startButton.addEventListener("click", function() {
+        startStopwatch();
+    });
+
+    stopResumeButton.addEventListener("click", function() {
+        if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            stopResumeButton.textContent = "Resume";
+            playBeepSound(); // Play the beep sound
+        } else {
+            startStopwatch();
+            stopResumeButton.textContent = "Stop";
+        }
+    });
+
+    function playBeepSound() {
+        const beepAudio = document.getElementById("beepAudio");
+        beepAudio.play();
+    }
+
+    function startStopwatch() {
+        startButton.disabled = true;
+        stopResumeButton.disabled = false;
+        stopwatchRunning = true;
+        timerInterval = setInterval(updateStopwatch, 1000);
+    }
+
+    function updateStopwatch() {
+        seconds++;
+        if (seconds == 60) {
+            seconds = 0;
+            minutes++;
+        }
+        var formattedTime = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        stopwatchElement.textContent = formattedTime;
+    }
+</script>
+
+</body>
+</html>

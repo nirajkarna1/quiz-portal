@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Display with Stopwatch</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #image-buttons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #top-buttons {
+            margin-right: 20px;
+        }
+
+        #image-buttons button {
+            margin: 5px;
+        }
+
+        .image-container {
+            display: none;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .stopwatch-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .stopwatch {
+            font-size: 20px;
+        }
+
+        /* Additional styling for start buttons */
+        .stopwatch-container button.start {
+            background-color: rgb(77, 12, 31);
+            display: block; /* Show the start button by default */
+        }
+
+        .stopwatch-container button.start:hover {
+            background-color: rgb(15, 14, 95);
+        }
+
+        #top-buttons button {
+            background-color: rgb(43, 5, 5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        #top-buttons button:hover {
+            background-color: rgb(95, 6, 6);
+        }
+    </style>
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Display with Stopwatch</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #image-buttons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #top-buttons {
+            margin-right: 20px;
+        }
+
+        #image-buttons button {
+            margin: 5px;
+        }
+
+        .image-container {
+            display: none;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .stopwatch-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .stopwatch {
+            font-size: 20px;
+        }
+
+        /* Additional styling for start buttons */
+        .stopwatch-container button.start {
+            background-color: rgb(65, 6, 6);
+            display: block; /* Show the start button by default */
+        }
+
+        .stopwatch-container button.start:hover {
+            background-color: rgb(82, 7, 11);
+        }
+
+        #top-buttons button {
+            background-color: rgb(94, 4, 4);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        #top-buttons button:hover {
+            background-color: rgb(18, 18, 97);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="image-buttons">
+        <div id="top-buttons">
+            <a href="index.html"><button id="btnHome">Home</button></a>
+            <a href="file1.html"><button id="btnIndex">Index</button></a>
+        </div>
+        <button id="btnImage1" onclick="showImage('image1Container')">Show Image 1</button>
+        <button id="btnImage2" onclick="showImage('image2Container')">Show Image 2</button>
+        <button id="btnImage3" onclick="showImage('image3Container')">Show Image 3</button>
+        <button id="btnImage4" onclick="showImage('image4Container')">Show Image 4</button>
+    </div>
+    
+    <div class="image-container" id="image1Container">
+        <div class="question" id="question1">Identify the personality in this image.</div>
+        <div class="image">
+            <img src="image/image1.jpg" alt="Image 1">
+        </div>
+        <div class="stopwatch-container" id="stopwatch1Container">
+            <div class="stopwatch" id="stopwatch1">00:00</div>
+            <button class="start" onclick="startStopwatch(1)">Start</button>
+            <button onclick="stopStopwatch(1)">Stop</button>
+            <button onclick="resetStopwatch(1)">Reset</button>
+        </div>
+    </div>
+    
+    <div class="image-container" id="image2Container">
+        <div class="question" id="question2">Identify the personality in this image.</div>
+        <div class="image">
+            <img src="image/image2.jpg" alt="Image 2">
+        </div>
+        <div class="stopwatch-container" id="stopwatch2Container">
+            <div class="stopwatch" id="stopwatch2">00:00</div>
+            <button class="start" onclick="startStopwatch(2)">Start</button>
+            <button onclick="stopStopwatch(2)">Stop</button>
+            <button onclick="resetStopwatch(2)">Reset</button>
+        </div>
+    </div>
+    
+    <div class="image-container" id="image3Container">
+        <div class="question" id="question3">Identify the personality in this image.</div>
+        <div class="image">
+            <img src="image/image3.jpg" alt="Image 3">
+        </div>
+        <div class="stopwatch-container" id="stopwatch3Container">
+            <div class="stopwatch" id="stopwatch3">00:00</div>
+            <button class="start" onclick="startStopwatch(3)">Start</button>
+            <button onclick="stopStopwatch(3)">Stop</button>
+            <button onclick="resetStopwatch(3)">Reset</button>
+        </div>
+    </div>
+    
+    <div class="image-container" id="image4Container">
+        <div class="question" id="question4">Identify the personality in this image.</div>
+        <div class="image">
+            <img src="image/image4.jpg" alt="Image 4">
+        </div>
+        <div class="stopwatch-container" id="stopwatch4Container">
+            <div class="stopwatch" id="stopwatch4">00:00</div>
+            <button class="start" onclick="startStopwatch(4)">Start</button>
+            <button onclick="stopStopwatch(4)">Stop</button>
+            <button onclick="resetStopwatch(4)">Reset</button>
+        </div>
+    </div>
+
+<!-- Repeat the above image container and stopwatch structure for other images -->
+
+<script>
+    let stopwatches = [];
+
+    function showImage(containerId) {
+        const container = document.getElementById(containerId);
+        container.style.display = 'block';
+
+        const btnId = containerId.replace('image', '').replace('Container', '');
+        const btn = document.getElementById(`btnImage${btnId}`);
+        btn.style.display = 'none';
+
+        if (!stopwatches[btnId]) {
+            const stopwatchId = `stopwatch${btnId}`;
+            const stopwatchDisplay = document.getElementById(stopwatchId);
+
+            stopwatches[btnId] = {
+                startTime: Date.now(),
+                isRunning: false,
+                timerInterval: null,
+                stopwatchDisplay: stopwatchDisplay
+            };
+
+            updateStopwatch(btnId);
+        }
+    }
+
+    function stopStopwatch(btnId) {
+        const stopwatchData = stopwatches[btnId];
+        clearInterval(stopwatchData.timerInterval);
+        stopwatchData.isRunning = false;
+
+        const startButton = document.querySelector(`#stopwatch${btnId}Container button.start`);
+        startButton.style.display = 'block';
+    }
+
+    function startStopwatch(btnId) {
+        const stopwatchData = stopwatches[btnId];
+        if (!stopwatchData.isRunning) {
+            stopwatchData.isRunning = true;
+            stopwatchData.startTime = Date.now();
+            stopwatchData.timerInterval = setInterval(() => updateStopwatch(btnId), 1000);
+
+            const startButton = document.querySelector(`#stopwatch${btnId}Container button.start`);
+            startButton.style.display = 'none';
+        }
+    }
+
+    function resetStopwatch(btnId) {
+        const stopwatchData = stopwatches[btnId];
+        clearInterval(stopwatchData.timerInterval);
+        stopwatchData.stopwatchDisplay.textContent = '00:00';
+        stopwatchData.isRunning = false;
+
+        const startButton = document.querySelector(`#stopwatch${btnId}Container button.start`);
+        startButton.style.display = 'block';
+    }
+
+    function updateStopwatch(btnId) {
+        const elapsedTime = Math.floor((Date.now() - stopwatches[btnId].startTime) / 1000);
+        const minutes = Math.floor(elapsedTime / 60);
+        const seconds = elapsedTime % 60;
+        const stopwatchDisplay = stopwatches[btnId].stopwatchDisplay;
+        stopwatchDisplay.textContent = `${formatTimeComponent(minutes)}:${formatTimeComponent(seconds)}`;
+    }
+
+    function formatTimeComponent(value) {
+        return value < 10 ? `0${value}` : value;
+    }
+</script>
+
+</body>
+</html>
+
+<script>
+    let stopwatches = [];
+
+    function showImage(containerId) {
+        const container = document.getElementById(containerId);
+        container.style.display = 'block';
+
+        const btnId = containerId.replace('image', '').replace('Container', '');
+        const btn = document.getElementById(`btnImage${btnId}`);
+        btn.style.display = 'none';
+
+        if (!stopwatches[btnId]) {
+            const stopwatchId = `stopwatch${btnId}`;
+            const stopwatchDisplay = document.getElementById(stopwatchId);
+
+            stopwatches[btnId] = {
+                startTime: Date.now(),
+                isRunning: false,
+                timerInterval: null,
+                stopwatchDisplay: stopwatchDisplay
+            };
+
+            updateStopwatch(btnId);
+        }
+    }
+
+    function stopStopwatch(btnId) {
+        const stopwatchData = stopwatches[btnId];
+        clearInterval(stopwatchData.timerInterval);
+        stopwatchData.isRunning = false;
+
+        const startButton = document.querySelector(`#stopwatch${btnId}Container button.start`);
+        startButton.style.display = 'block';
+    }
+
+    function startStopwatch(btnId) {
+        const stopwatchData = stopwatches[btnId];
+        if (!stopwatchData.isRunning) {
+            stopwatchData.isRunning = true;
+            stopwatchData.startTime = Date.now();
+            stopwatchData.timerInterval = setInterval(() => updateStopwatch(btnId), 1000);
+
+            const startButton = document.querySelector(`#stopwatch${btnId}Container button.start`);
+            startButton.style.display = 'none';
+        }
+    }
+
+    function resetStopwatch(btnId) {
+        const stopwatchData = stopwatches[btnId];
+        clearInterval(stopwatchData.timerInterval);
+        stopwatchData.stopwatchDisplay.textContent = '00:00';
+        stopwatchData.isRunning = false;
+
+        const startButton = document.querySelector(`#stopwatch${btnId}Container button.start`);
+        startButton.style.display = 'block';
+    }
+
+    function updateStopwatch(btnId) {
+        const elapsedTime = Math.floor((Date.now() - stopwatches[btnId].startTime) / 1000);
+        const minutes = Math.floor(elapsedTime / 60);
+        const seconds = elapsedTime % 60;
+        const stopwatchDisplay = stopwatches[btnId].stopwatchDisplay;
+        stopwatchDisplay.textContent = `${formatTimeComponent(minutes)}:${formatTimeComponent(seconds)}`;
+    }
+
+    function formatTimeComponent(value) {
+        return value < 10 ? `0${value}` : value;
+    }
+</script>
+
+</body>
+</html>

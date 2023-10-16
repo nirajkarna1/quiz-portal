@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OPS INTER SCHOOL QUIZ COMPETITION-2080</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="question-container">
+    <img src="logo.png" alt="Quiz Logo" class="logo">
+    <h1>please ! choose question number and topic</h1>
+    <form method="post" action="displayquestion.php">
+      <label for="group">Group:</label>
+      <select id="group" name="group" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <label for="questionNumber">Question Number:</label>
+      <input type="number" id="questionNumber" name="questionNumber" required>
+
+      <label for="questionTopic">Question Topic:</label>
+      <select id="questionTopic" name="questionTopic" required>
+        <option value="Generalround">General Round</option>
+        <option value="science">Science</option>
+        <option value="math">Math</option>
+        <option value="GK">General Knowledge (GK)</option>
+      </select>
+
+      <button type="submit">
+        <a href="timer.html" style="color: white; text-decoration: none;">TIMER</a>
+        Submit
+      </button>
+    </form>
+  </div>
+</body>
+</html>

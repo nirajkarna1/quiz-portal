@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OPS INTER SCHOOL QUIZ COMPETITION-2080</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .question-container {
+      text-align: center;
+    }
+
+    .top-tabs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    .tab {
+      background-color: #1167b1;
+      color: white;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 5px 5px 0 0;
+      cursor: pointer;
+    }
+    .tab:hover {
+      background-color: #ffffff;
+    }
+
+    .blue-button {
+      background-color: rgb(97, 16, 15);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .blue-button:hover {
+      background-color: rgb(63, 63, 65);
+    }
+
+    .submit-button {
+      background-color: #1167b1; /* Use the previous color for the submit button */
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-button:hover {
+      background-color: #11579b;
+    }
+  </style>
+</head>
+<body>
+
+<div class="question-container">
+  <img src="logo.png" alt="Quiz Logo" class="logo" width="900" height="300">
+
+  <h1>NEW ERA ACADEMY QUIZ PORTAL</h1>
+  <form method="post" action="displayquestion.php">
+    <label for="group">Group:</label>
+    <select id="group" name="group" required>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="E">E</option>
+      <option value="F">F</option>
+      <option value="G">G</option>
+      <option value="H">H</option>
+    </select>
+
+    <label for="questionNumber">Question Number:</label>
+    <input type="number" id="questionNumber" name="questionNumber" required>
+
+    <label for="questionTopic">Question Topic:</label>
+    <select id="questionTopic" name="questionTopic" required>
+      <option value="Generalround">General Round</option>
+      <option value="math">Math</option>
+      <option value="geography">Geography</option>
+      <option value="scienceandtechnology">Science and Technology</option>
+      <option value="mixed">Mixed</option>
+      <option value="sports">Sports</option>
+      <option value="socialscienceandhistory">Social Science and History</option>
+      <option value="extra">extra</option>
+    </select>
+
+    <button class="submit-button" type="submit">Submit</button>
+    <div class="bottom-bar">
+      <div class="top-tabs">
+        <button class="blue-button" id="index-button" type="button" onclick="window.location.href='rapid.php'">RAPID FIRE ROUND</button>
+        <button class="blue-button" id="index-button" type="button" onclick="window.location.href='audio.html'">Audio Round</button>
+        <button class="blue-button" id="beep-button" type="button">Beep Button</button>
+        <button class="blue-button" id="beep-button" type="button" onclick="window.location.href = 'score.php';">Score</button>
+
+
+
+
+        <div id="menu-sets">
+          <label for="menu-select">Visual Round</label>
+          <select id="menu-select" onchange="handleMenuSelection(this)" class="blue-button">
+            <option value="" disabled selected>SET</option>
+            <option value="file1.html">Set One</option>
+            <option value="file2.html">Set Two</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  function handleMenuSelection(selectElement) {
+    const selectedValue = selectElement.value;
+    if (selectedValue) {
+      window.location.href = selectedValue;
+    }
+  }
+
+
+  document.getElementById('beep-button').addEventListener('click', function() {
+    var audio = new Audio('beep.mp3');
+    audio.play();
+  });
+
+
+
+
+</script>
+
+</body>
+</html>
